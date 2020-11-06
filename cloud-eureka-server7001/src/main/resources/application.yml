@@ -1,0 +1,13 @@
+server:
+  port: 7001
+eureka:
+  instance:
+    hostname: gd-eureka7001.com #eureka服务端的实例名称
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/
+  server:
+    enable-self-preservation: false  #关闭自我保护
+    eviction-interval-timer-in-ms: 2000  #清理无效节点的时间间隔，默认60000毫秒，即60秒
