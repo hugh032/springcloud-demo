@@ -1,4 +1,4 @@
-package com.gloden.cloud.bean;
+package com.golden.cloud.bean;
 
 public class User {
     private String name;

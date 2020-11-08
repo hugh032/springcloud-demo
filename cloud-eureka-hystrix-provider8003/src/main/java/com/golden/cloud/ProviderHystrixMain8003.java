@@ -1,17 +1,17 @@
-package com.gloden.cloud;
+package com.golden.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
-@EnableFeignClients
-public class ConsumeMain80 {
+@EnableCircuitBreaker
+public class ProviderHystrixMain8003 {
     public static void main(String[] args) {
-        SpringApplication.run(ConsumeMain80.class,args);
+        SpringApplication.run(ProviderHystrixMain8003.class,args);
     }
 }

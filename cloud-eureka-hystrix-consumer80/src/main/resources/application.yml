@@ -1,0 +1,26 @@
+server:
+  port: 80
+spring:
+  application:
+    name: cloud-eureka-hystrix-consume
+#eureka注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: consume-hystrix  #actuator
+    prefer-ip-address: true  #访问路径显示ip
+#feign超时
+feign:
+  client:
+    config:
+      CLOUD-EUREKA-PROVIDER-HYSTRIX:   # feignName 可以通过feignName给不同feignClient设置不同的超时时间  ，默认值：default
+        readTimeout: 6000
+        connectTimeout: 6000
+  hystrix: #hystrix 服务降级
+    enabled: true
+logging:
+  level:
+    com.golden.cloud.hystrix.service.HystrixService: debug  # 配置feignClient 打印相关日志信息
+

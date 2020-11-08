@@ -10,6 +10,8 @@
         <module>cloud-eureka-provider8002</module>
         <module>cloud-eureka-consume</module>
         <module>cloud-consul-provider8006</module>
+        <module>cloud-eureka-hystrix-provider8003</module>
+        <module>cloud-eureka-hystrix-consumer80</module>
     </modules>
     <groupId>com.gd</groupId>
     <artifactId>demo</artifactId>

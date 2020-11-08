@@ -1,0 +1,12 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: cloud-eureka-provider-hystrix
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: provider-hystrix8003   #actuator
+    prefer-ip-address: true  #访问路径显示ip

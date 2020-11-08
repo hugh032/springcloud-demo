@@ -1,6 +1,6 @@
-package com.gloden.cloud.service;
+package com.golden.cloud.service;
 
-import com.gloden.cloud.bean.User;
+import com.golden.cloud.bean.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.stereotype.Service;

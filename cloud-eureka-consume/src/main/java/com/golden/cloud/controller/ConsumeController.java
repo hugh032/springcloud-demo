@@ -1,7 +1,7 @@
-package com.gloden.cloud.controller;
+package com.golden.cloud.controller;
 
-import com.gloden.cloud.bean.User;
-import com.gloden.cloud.service.Provider8001Service;
+import com.golden.cloud.bean.User;
+import com.golden.cloud.service.Provider8001Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
