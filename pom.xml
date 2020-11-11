@@ -13,6 +13,7 @@
         <module>cloud-eureka-hystrix-provider8003</module>
         <module>cloud-eureka-hystrix-consumer80</module>
         <module>cloud-eureka-hystrix-dashboard9001</module>
+        <module>cloud-eureka-gateway9527</module>
     </modules>
     <groupId>com.gd</groupId>
     <artifactId>demo</artifactId>

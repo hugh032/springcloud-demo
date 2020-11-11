@@ -1,0 +1,25 @@
+server:
+  port: 9527
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: hystrix-provider8003_1
+#          uri: http://localhost:8003
+#          predicates:
+#            - Path=/hystrix/{x}/**     #{x}占位符可表示多个目录, **也可以表示参数  如 :/hystrix/a/b/{id}
+#        - id: hystrix-provider8003_2
+#          uri: http://localhost:8003
+#          predicates:
+#            - Path=/hystrix/{x}
+  application:
+    name: cloud-eureka-gateway
+#eureka注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: gateway9527  #actuator
+    prefer-ip-address: true  #访问路径显示ip
+    hostname: cloud-eureka-gateway
