@@ -23,4 +23,3 @@ feign:
 logging:
   level:
     com.golden.cloud.hystrix.service.HystrixService: debug  # 配置feignClient 打印相关日志信息
-

@@ -12,6 +12,7 @@
         <module>cloud-consul-provider8006</module>
         <module>cloud-eureka-hystrix-provider8003</module>
         <module>cloud-eureka-hystrix-consumer80</module>
+        <module>cloud-eureka-hystrix-dashboard9001</module>
     </modules>
     <groupId>com.gd</groupId>
     <artifactId>demo</artifactId>
@@ -25,7 +26,6 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <log4j.version>1.2.17</log4j.version>
-        <lombok.version>1.16.18</lombok.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -49,12 +49,6 @@
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
                 <version>${log4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-                <optional>true</optional>
             </dependency>
         </dependencies>
     </dependencyManagement>

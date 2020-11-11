@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//全局降级配置@DefaultProperties+@HystrixCommand
 //@DefaultProperties(defaultFallback = "globalFallback")
 public class HystrixController {
 
@@ -26,7 +25,6 @@ public class HystrixController {
     }
 
     @GetMapping("/consumer/hystrix/timeout/do/{id}")
-    //单个服务方法降级配置
 //    @HystrixCommand(fallbackMethod = "timeoutFallback", commandProperties = {
 //            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds" ,value = "1000")
 //    })
