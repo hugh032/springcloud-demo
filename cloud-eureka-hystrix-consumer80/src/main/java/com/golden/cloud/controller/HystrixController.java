@@ -3,6 +3,7 @@ package com.golden.cloud.controller;
 import com.golden.cloud.hystrix.service.HystrixService;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,9 +26,9 @@ public class HystrixController {
     }
 
     @GetMapping("/consumer/hystrix/timeout/do/{id}")
-//    @HystrixCommand(fallbackMethod = "timeoutFallback", commandProperties = {
-//            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds" ,value = "1000")
-//    })
+    @HystrixCommand(fallbackMethod = "timeoutFallback", commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds" ,value = "1000")
+    })
     //@HystrixCommand
     String consumerTimeout(@PathVariable Integer id) {
         //int value = 1 / 0;
@@ -43,7 +44,7 @@ public class HystrixController {
      * @return
      */
     public String timeoutFallback(Integer id) {
-        return "consumer端 " + Thread.currentThread().getName() + " timeout fallback..";
+        return ".....consumer端 " + Thread.currentThread().getName() + " timeout fallback..";
     }
 
     public String globalFallback() {
