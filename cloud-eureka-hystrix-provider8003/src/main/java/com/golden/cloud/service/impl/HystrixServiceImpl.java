@@ -16,10 +16,10 @@ public class HystrixServiceImpl implements HystrixService {
 
     @Override
     @HystrixCommand(fallbackMethod = "timeoutFallback", commandProperties = {
-            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds" ,value = "3000")
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds" ,value = "7000")
     })
     public String timeout(Integer id) {
-        int sleepNumber = 5;
+        int sleepNumber = 10;
         try {
             TimeUnit.SECONDS.sleep(sleepNumber);
         } catch (InterruptedException e) {
