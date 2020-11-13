@@ -1,20 +1,36 @@
 server:
   port: 9527
-#spring:
-#  cloud:
-#    gateway:
-#      routes:
-#        - id: hystrix-provider8003_1
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true                 #开启从注册中心动态创建路由，通过微服务名称进行路由
+      routes:
+        - id: hystrix-provider8003   #id 任意名 保证唯一，建议与微服务名相关名称
 #          uri: http://localhost:8003
-#          predicates:
-#            - Path=/hystrix/{x}/**     #{x}占位符可表示多个目录, **也可以表示参数  如 :/hystrix/a/b/{id}
-#        - id: hystrix-provider8003_2
-#          uri: http://localhost:8003
-#          predicates:
-#            - Path=/hystrix/{x}
+          uri: lb://CLOUD-EUREKA-PROVIDER-HYSTRIX
+          predicates:  # 每个断言类型和=之间不能有空格！
+            - Path= /hystrix/{x}/** , /gateway/{x}/**     #{x}占位符可表示多个目录, **也可以表示参数  如 :/hystrix/a/b/{id}
+#            - Before= 2020-11-13T19:15:51.750+08:00[Asia/Shanghai] # java ZonedDateTime类型  匹配-Before 之前的时间 ，否 404
+#            - After= 2020-11-12T18:01:48.320+08:00[Asia/Shanghai]  # 匹配-After 之后的时间
+#            - Cookie= username,.*hugh-doumi-jL.*  # Cookie包含2个参数 逗号分割  key,value格式 value可匹配正则 ，.*hugh-doumi-jL.* 匹配包含hugh-doumi-jL的字符串
+#            - Header= X-Request-Id, \d+   # Header  key,value格式 value可匹配正则 \d+  表示正整数 it has a value of one or more digit
+#            - Host= **.jL.**, **.doumi.com, **.hugh.com # Host匹配 **为通配符 测试：curl http://localhost:8003/gateway/demo/t1/1 -H "www.jL.org"
+#            - Method= GET,post # This route matches if the request method was a GET or a POST
+#            - Query= color,gree.* # key-value格式  key=color ,value= gree.*  value 可匹配正则
+
+          filters:
+            - name: Hystrix  # 指向 HystrixGatewayFilterFactory.class
+              args:
+                name: fallbackcmd #
+                fallbackUri: forward:/incaseoffailureusethis
+
+
   application:
     name: cloud-eureka-gateway
 #eureka注册中心
+
 eureka:
   client:
     service-url:
@@ -23,3 +39,11 @@ eureka:
     instance-id: gateway9527  #actuator
     prefer-ip-address: true  #访问路径显示ip
     hostname: cloud-eureka-gateway
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
