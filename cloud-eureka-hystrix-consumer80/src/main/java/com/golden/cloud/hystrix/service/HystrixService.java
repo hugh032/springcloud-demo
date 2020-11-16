@@ -14,4 +14,7 @@ public interface HystrixService {
 
     @GetMapping("/hystrix/timeout/do/{id}")
     String timeout(@PathVariable("id") Integer id);
+
+    @GetMapping("/hystrix/zipkin/{id}")
+    String zipkin(@PathVariable("id") Integer id);
 }

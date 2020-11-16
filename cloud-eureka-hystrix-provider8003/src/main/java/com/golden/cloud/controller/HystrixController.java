@@ -26,4 +26,14 @@ public class HystrixController {
     public String hugh() {
         return "hugh...";
     }
+
+    /**
+     * zipkin
+     * @param id
+     * @return
+     */
+    @GetMapping("/zipkin/{id}")
+    public String zipkin(@PathVariable("id") Integer id) {
+        return hystrixService.zipkin(id);
+    }
 }

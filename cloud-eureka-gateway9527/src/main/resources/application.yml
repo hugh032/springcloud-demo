@@ -25,8 +25,8 @@ spring:
               args:
                 name: fallbackcmd #
                 fallbackUri: forward:/incaseoffailureusethis
-            - PrefixPath=/mypath  # 给匹配到的uri增加路径
-            - StripPrefix=2    # 给匹配的uri去除路径  比如，请求/name/bar/foo，去除掉前面两个前缀之后，最后转发到目标服务的路径为/foo
+#            - PrefixPath=/mypath  # 给匹配到的uri增加路径
+#            - StripPrefix=2    # 给匹配的uri去除路径  比如，请求/name/bar/foo，去除掉前面两个前缀之后，最后转发到目标服务的路径为/foo
 
 
   application:

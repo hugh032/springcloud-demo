@@ -49,4 +49,14 @@ public class HystrixController {
     public String globalFallback() {
         return "consumer端 全局fallback";
     }
+
+    /**
+     * zipkin
+     * @param id
+     * @return
+     */
+    @GetMapping("/consumer/hystrix/zipkin/{id}")
+    public String zipkin(@PathVariable("id") Integer id) {
+        return hystrixService.zipkin(id);
+    }
 }

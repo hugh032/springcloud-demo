@@ -9,4 +9,6 @@ public interface HystrixService {
 
     String timeout(Integer id);
 
+
+    String zipkin(Integer id);
 }
